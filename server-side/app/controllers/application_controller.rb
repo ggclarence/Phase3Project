@@ -6,4 +6,41 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/users" do
+    users = User.all
+    users.to_json
+  end
+
+  get "/goals" do
+    goals = Goal.all
+    goals.to_json
+  end
+
+  get "/journals" do 
+    journals = Journal.all
+    journals.to_json
+  end
+
+  get "/posts" do 
+    posts = Post.all
+    posts.to_json
+  end
+
+  post "/goals" do
+    goal = Goal.create(
+      user_id: params[:user_id],
+      goal: params[:goal]
+    )
+    goal.to_json
+  end
+
+  post "/journals" do 
+    journal = Journal.create(
+      user_id: params[:user_id],
+      title: params[:title],
+      journal_entry: params[:body]
+    )
+    journal.to_json
+  end
+  
 end

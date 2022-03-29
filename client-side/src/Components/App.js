@@ -1,9 +1,13 @@
 import '../App.css';
 import TestDiv from "./TestDiv"
+import Journal from './Journal';
 
 function App() {
   return (
-    <TestDiv />
+    <>
+      
+      <Journal />
+    </>
   );
 }
 

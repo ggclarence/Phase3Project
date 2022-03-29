@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/goals" do
-    goals = Goal.all
+    goals = Goal.all.reverse_order.limit(3)
     goals.to_json
   end
 
@@ -29,7 +29,8 @@ class ApplicationController < Sinatra::Base
   post "/goals" do
     goal = Goal.create(
       user_id: params[:user_id],
-      goal: params[:goal]
+      goal: params[:goal],
+      status: params[:status]
     )
     goal.to_json
   end

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2022_03_29_170340) do
   create_table "goals", force: :cascade do |t|
     t.string "goal"
     t.integer "user_id"
+    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_goals_on_user_id"

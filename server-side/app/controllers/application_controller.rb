@@ -11,14 +11,14 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
-  get "/goals" do
-    goals = Goal.all.reverse_order.limit(3)
+  get "/goals/:id" do
+    goals = Goal.where(user_id: params[:id]).reverse_order.limit(3)
     goals.to_json
   end
 
   get "/journals" do 
     journals = Journal.all
-    journals.to_json
+    journals.to_json(include:[:user])
   end
 
   get "/posts" do 
@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
     posts.to_json
   end
 
-  post "/goals" do
+  post "/goals/:id" do
     goal = Goal.create(
       user_id: params[:user_id],
       goal: params[:goal],
@@ -49,6 +49,14 @@ class ApplicationController < Sinatra::Base
       journal_entry: params[:body]
     )
     journal.to_json
+  end
+
+  patch "/goals/:id" do
+    patchedGoal = Goal.find(params[:id])
+    patchedGoal.update(
+      status: params[:status]
+    )
+    patchedGoal.to_json
   end
   
 end

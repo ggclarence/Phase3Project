@@ -1,8 +1,7 @@
 import React from "react";
 
-function PostCard({post}){
-    // console.log(post)
-    return(
+function PostCard({ post }) {
+    return (
         <ul>
             <li>
                 <h2>{post.user.name}</h2>

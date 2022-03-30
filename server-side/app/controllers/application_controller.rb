@@ -27,6 +27,12 @@ class ApplicationController < Sinatra::Base
       user: { only: [:name]} })
   end
 
+  post "/posts" do
+    id = User.handleAdd(params[:name])
+    posts = Post.create(post:params[:post],user_id: id )
+    posts.to_json
+  end
+
   post "/goals" do
     goal = Goal.create(
       user_id: params[:user_id],

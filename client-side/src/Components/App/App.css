@@ -1,0 +1,12 @@
+.app{
+    display: grid;
+
+    grid-template-columns: auto;
+    grid-template-rows: min-content;
+    grid-template-areas: 
+        "head head head head"
+        "nav main main main"
+        "nav main main main";
+
+    height: 100vh;
+}

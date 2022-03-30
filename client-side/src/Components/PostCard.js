@@ -1,7 +1,7 @@
 import React from "react";
 
 function PostCard({post}){
-    console.log(post)
+    // console.log(post)
     return(
         <ul>
             <li>

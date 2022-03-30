@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css"
-
+// adasdsa
 function FriendCard({friend}){
     console.log(friend)
     return(

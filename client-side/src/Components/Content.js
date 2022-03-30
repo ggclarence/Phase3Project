@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 const Journal = React.lazy( () => import('../pages/Journal/Journal'));
-const Home = React.lazy( () => import('../pages/Home'));
+const Home = React.lazy( () => import('../pages/Home/Home'));
 const Profile = React.lazy( () => import('../pages/Profile'));
 
 

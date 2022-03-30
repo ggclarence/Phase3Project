@@ -1,7 +1,9 @@
 import React, { useState } from "react"
+import Goals from "../../Components/Goals"
 
 function AddGoal() {
     const [goal, setGoal] = useState("")
+    const [refresh, setRefresh] = useState(true)
 
     function handleSubmit(value) {
 
@@ -20,6 +22,7 @@ function AddGoal() {
         })
             .then(res => res.json())
             .then(res => console.log(res))
+        setRefresh(refresh => !refresh)
 
     }
 
@@ -44,6 +47,7 @@ function AddGoal() {
                 />
 
                 <button type="submit">Click me</button>
+                <Goals refresh={refresh}/>
 
             </form>
         </div >

@@ -2,7 +2,8 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import './styles.css';
 import 'react-calendar/dist/Calendar.css'
-import Goals from '../Components/Goals';
+import Goals from '../../Components/Goals';
+import JournalEntries from './JournalEntries';
 
 function Profile(){
     return (
@@ -18,6 +19,7 @@ function Profile(){
         </div>
         <div className='journey'>
             <h1>Journal Entries</h1>
+            <JournalEntries />
         </div>
     </div>
     )

@@ -9,11 +9,13 @@ function AddGoal() {
 
         let newGoal = {
             user_id: 1,
-            goal: value
+            goal: value,
+            img_url: null,
+            status: false
         }
 
 
-        fetch("http://localhost:9292/goals", {
+        fetch("http://localhost:9292/goals/1", {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
@@ -36,6 +38,7 @@ function AddGoal() {
             <form className="addGoal" onSubmit={(e) => {
                 e.preventDefault()
                 handleSubmit(goal)
+                setGoal("")
             }}>
 
                 <input
@@ -46,7 +49,7 @@ function AddGoal() {
                     onChange={(e) => setGoal(e.target.value)}
                 />
 
-                <button type="submit">Click me</button>
+                <button type="submit" onClick={() => setRefresh(refresh => !refresh)}>Click me</button>
                 <Goals refresh={refresh}/>
 
             </form>

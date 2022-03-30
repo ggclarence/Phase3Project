@@ -1,5 +1,7 @@
 puts "🌱 Seeding users..."
 
+
+User.create(name: "Thomas Ander")
 User.create(name: "Eric Gonzalez")
 User.create(name: "Eric Van")
 User.create(name: "Stefan Inman")

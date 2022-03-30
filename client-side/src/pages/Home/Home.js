@@ -20,7 +20,7 @@ function Home(){
     useEffect(()=>{
         fetch("http://localhost:9292/posts")
         .then(resp => resp.json())
-        .then(data => setCurrentPost(data.slice(-3)))
+        .then(data => setCurrentPost(data.slice(-3).reverse()))
     },[])
    
     function handleAdd(newData){
@@ -33,7 +33,7 @@ function Home(){
         .then(json => {
             fetch("http://localhost:9292/posts")
             .then(resp => resp.json())
-            .then(data => setCurrentPost(data.slice(-3)))
+            .then(data => setCurrentPost(data.slice(-3).reverse()))
         });     
         }
 

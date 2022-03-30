@@ -10,5 +10,9 @@ class User < ActiveRecord::Base
         # binding.pry
     end
 
+    def self.onlyFour
+         all = self.all
+         all.sample(4)
+    end
     
 end

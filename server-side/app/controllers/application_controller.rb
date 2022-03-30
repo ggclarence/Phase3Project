@@ -11,6 +11,11 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+  get "/users/four" do
+    users = User.onlyFour
+    users.to_json
+  end
+
   get "/goals/:id" do
     goals = Goal.where(user_id: params[:id]).reverse_order.limit(3)
     goals.to_json

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Posts from "./Posts";
 import Goals from "../../Components/Goals";
+import Friends from "./Friends";
 
 function Home() {
 
@@ -55,6 +56,7 @@ function Home() {
             <Posts currentPost={currentPost} />
             <h3>Daily Goals</h3>
             <Goals />
+            <Friends/>
         </div>
     )
 }

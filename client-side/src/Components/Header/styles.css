@@ -1,0 +1,38 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    
+    width: 100%;
+    height: min-content;
+
+    justify-content: space-between;
+    align-items: center;
+
+    grid-area: head;
+}
+
+.header h1{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.userBanner {
+    display: flex;
+    flex-direction: row;
+
+    padding-left: 50px;
+    padding-right: 50px;
+
+    justify-items: space-between;
+    align-items: center;
+
+    width: auto;
+    max-width: 20%;
+}
+
+.userBanner img{
+    width: 50px;
+    padding: 15px;
+    height: auto;
+    border-radius: 360px;
+}

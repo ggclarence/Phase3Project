@@ -23,7 +23,8 @@ class ApplicationController < Sinatra::Base
 
   get "/posts" do 
     posts = Post.all
-    posts.to_json
+    posts.to_json(include: {
+      user: { only: [:name]} })
   end
 
   post "/goals" do

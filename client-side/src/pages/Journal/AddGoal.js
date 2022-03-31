@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Goals from "../../Components/Goals"
+import Goals from "../Home/Goals"
 
 function AddGoal() {
     const [goal, setGoal] = useState("")
@@ -28,18 +28,14 @@ function AddGoal() {
 
     }
 
-
-
-
-
     return (
         <div>
             <h1>ADD DAILY GOAL</h1>
-            <form className="addGoal" onSubmit={(e) => {
-                e.preventDefault()
-                handleSubmit(goal)
-                setGoal("")
-            }}>
+                <form className="addGoal" onSubmit={(e) => {
+                    e.preventDefault()
+                    handleSubmit(goal)
+                    setGoal("")
+                }}>
 
                 <input
                     type="text"
@@ -49,13 +45,13 @@ function AddGoal() {
                     onChange={(e) => setGoal(e.target.value)}
                 />
 
-                <button type="submit" onClick={() => setRefresh(refresh => !refresh)}>Click me</button>
-                <Goals refresh={refresh}/>
-
+                <button 
+                type="submit" 
+                onClick={() => setRefresh(refresh => !refresh)}>Click me</button>
+                <Goals refresh={refresh} />
             </form>
-        </div >
+        </div>
     )
-
 }
 
 export default AddGoal

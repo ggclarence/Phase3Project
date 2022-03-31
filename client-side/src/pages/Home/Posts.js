@@ -8,6 +8,7 @@ function Posts({ user }) {
 
     const [currentPost, setCurrentPost] = useState([])
     const [loadLimit, setLoadLimit] = useState(3)
+
     useEffect(() => {
         fetch(`http://localhost:9292/posts/${loadLimit}`)
             .then(resp => resp.json())
@@ -55,7 +56,7 @@ function Posts({ user }) {
         <InfiniteScroll
             dataLength={currentPost.length}
             // next={this.fetchMoreData}
-            style={{ display: 'flex', flexDirection: 'column-reverse' }} //To put endMessage and loader to the top.
+            style={{ display: 'flex', flexDirection: 'column' }} //To put endMessage and loader to the top.
             inverse={true} //
             hasMore={false}
             loader={<h4>Loading...</h4>}
@@ -63,6 +64,7 @@ function Posts({ user }) {
             >
             {mapPost}
         </InfiniteScroll>
+        <button onClick={() => setLoadLimit(loadLimit => loadLimit += 3 )} >LoadMore</button>
     </div>
 
 

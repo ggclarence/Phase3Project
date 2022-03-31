@@ -18,7 +18,7 @@ function Home( { user }) {
         <div className="homeContainer">
             <Posts user={user}/>
             <Goals user={user}/>
-            <Friends />
+            <Friends friends={friends}/>
          </div>
     )
 }

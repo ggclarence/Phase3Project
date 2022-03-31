@@ -37,8 +37,32 @@
 
 .timeline{
     grid-area: tl;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .goals{
     grid-area: dg;
+    text-align: center;
+    padding-left: 50px;
+    font-size: larger;
+    width: '100%'
 }
+
+.checkbox{
+    text-align: left;
+    padding-bottom: 20px;
+    list-style: none;
+    
+    
+}
+
+.postForm {
+    text-align: left;
+    padding-left: 10%;
+}
+
+
+
+
+

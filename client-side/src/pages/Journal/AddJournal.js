@@ -20,6 +20,9 @@ function AddJournal() {
             body: JSON.stringify(newJournal)
         })
 
+        setJournalTitle("")
+        setJournalBody("")
+
     }
 
 

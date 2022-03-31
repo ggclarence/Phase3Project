@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import './styles.css'
 
-function Goals({ refresh }) {
+function Goals({ refresh, user }) {
     const [goals, setGoals] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:9292/goals/1")
+        fetch(`http://localhost:9292/goals/${user.id}`)
             .then(res => res.json())
             .then(res => setGoals(res))
-    }, [refresh])
+    }, [refresh, user.id])
 
     function handleChange(id) {
         let goalUpdate = {
             status: true
         }
 
-        fetch(`http://localhost:9292/goals/${id}`,{
+        fetch(`http://localhost:9292/goals/${id}`, {
             method: "PATCH",
-            headers:{
-                "Content-Type" : "application/json"
+            headers: {
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(goalUpdate)
         })
@@ -29,18 +29,18 @@ function Goals({ refresh }) {
 
     const goalsMap = goals.map((goal) => {
         return (
-            <>
-            <input type="checkbox"
-                key={goal.id} 
-                onChange={()=> handleChange(goal.id)} 
-                checked={(goal.status) ? "checked" : null}/>
-            <label for={goal.id}> {goal.goal} </label>
-            </>
+            <li key={goal.id} className="checkbox">
+                <input type="checkbox"                    
+                    onChange={() => handleChange(goal.id)}
+                    checked={(goal.status) ? "checked" : null} />
+                <label htmlFor={goal.id}> {goal.goal} </label>
+            </li>
         )
     })
 
     return (
         <div className="goals">
+            <h1>Daily Goals:</h1>
             {goalsMap}
         </div>
     )

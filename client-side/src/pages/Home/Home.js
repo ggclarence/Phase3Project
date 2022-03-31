@@ -4,7 +4,7 @@ import Friends from "./Friends";
 import './styles.css'
 import Goals from "./Goals";
 
-function Home() {
+function Home( { user }) {
 
     const [friends,setFriends] = useState([])
 
@@ -16,10 +16,10 @@ function Home() {
 
     return (
         <div className="homeContainer">
-            <Posts />
-            <Goals />
-            <Friends friends={friends} />
-        </div>
+            <Posts user={user}/>
+            <Goals user={user}/>
+            <Friends />
+         </div>
     )
 }
 

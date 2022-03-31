@@ -4,15 +4,17 @@ import PostCard from "./PostCard";
 import PostForm from "./PostForm";
 import './styles.css'
 
-function Posts() {
+function Posts({ user }) {
 
     const [currentPost, setCurrentPost] = useState([])
-    //fetchs current posts from db
+    const [loadLimit, setLoadLimit] = useState(3)
     useEffect(() => {
-        fetch("http://localhost:9292/posts")
+        fetch(`http://localhost:9292/posts/${loadLimit}`)
             .then(resp => resp.json())
             .then(data => setCurrentPost(data))
-        }, [])
+
+        }, [loadLimit])
+
     
     function handleAdd(newData) {
         fetch("http://localhost:9292/posts", {
@@ -38,6 +40,7 @@ function Posts() {
     })
 
     return (
+
         <div 
         className="timeline"
         id="scrollableDiv"
@@ -48,7 +51,7 @@ function Posts() {
         flexDirection: 'column',
         }}
         >
-        <PostForm />
+        <PostForm handleAdd={handleAdd} user={user}/>
         <InfiniteScroll
             dataLength={currentPost.length}
             // next={this.fetchMoreData}
@@ -61,6 +64,7 @@ function Posts() {
             {mapPost}
         </InfiniteScroll>
     </div>
+
 
     )
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 function JournalEntriesCard({ entry }) {
     return (
-        <div>
+        <div >
             <h1>{entry.title}</h1>
             <p>{entry.journal_entry}</p>
             <h3>{entry.user.name}</h3>

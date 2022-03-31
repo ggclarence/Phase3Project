@@ -4,11 +4,11 @@ import Friends from "./Friends";
 import './styles.css'
 import Goals from "./Goals";
 
-function Home() {
+function Home( { user }) {
     return (
         <div className="homeContainer">
-            <Posts />
-            <Goals />
+            <Posts user={user}/>
+            <Goals user={user}/>
             <Friends />
         </div>
     )

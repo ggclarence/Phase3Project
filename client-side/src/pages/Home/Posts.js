@@ -3,15 +3,15 @@ import PostCard from "./PostCard";
 import PostForm from "./PostForm";
 import './styles.css'
 
-function Posts() {
+function Posts({ user }) {
 
     const [currentPost, setCurrentPost] = useState([])
-    //fetchs current posts from db
+    const [loadLimit, setLoadLimit] = useState(3)
     useEffect(() => {
-        fetch("http://localhost:9292/posts")
+        fetch(`http://localhost:9292/posts/${loadLimit}`)
             .then(resp => resp.json())
-            .then(data => setCurrentPost(data.slice(-3)))
-        }, [])
+            .then(data => setCurrentPost(data))
+        }, [loadLimit])
     
     function handleAdd(newData) {
         fetch("http://localhost:9292/posts", {
@@ -23,7 +23,7 @@ function Posts() {
         .then(json => {
             fetch("http://localhost:9292/posts")
             .then(resp => resp.json())
-            .then(data => setCurrentPost(data.slice(-3)))
+            .then(data => setCurrentPost(data))
             });
         }
     
@@ -33,8 +33,9 @@ function Posts() {
 
     return (
         <div className="timeline">
-            <PostForm handleAdd={handleAdd}/>
+            <PostForm handleAdd={handleAdd} user={user}/>
             {mapPost}
+            <button onClick={() => setLoadLimit(loadLimit => loadLimit += 3)}>Load more</button>
         </div>
     )
 }

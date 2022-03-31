@@ -12,10 +12,9 @@ function JournalEntries() {
     }, [])
 
     const entriesMap = journalEntries.map((entry) => {
-        return <JournalEntriesCard entry={entry} />
+        return <JournalEntriesCard key={entry.id} entry={entry} />
     })
 
-    // console.log(journalEntries)
 
 
     return (

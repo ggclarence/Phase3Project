@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function PostForm({handleAdd}){
+function PostForm({handleAdd, user}){
 
     const [newPost, setNewPost] = useState([])
 
@@ -11,17 +11,14 @@ function PostForm({handleAdd}){
     }
     
     function onChange(event) {
-        setNewPost({ ...newPost, [event.target.name]: event.target.value })
+        setNewPost({ name: user.name, post: event.target.value })
+
     }
     
     return(
         <div className="postForm">
             <form onSubmit={handleSubmit}>
-                <p>How you feeling bud?</p>
-                    <input type="text"
-                    name="name" 
-                    placeholder="Your Name" 
-                    onChange={onChange} />
+                <h2>How you feeling bud?</h2>
                     <input type="text"
                     name="post"
                     placeholder="How are you feeling"

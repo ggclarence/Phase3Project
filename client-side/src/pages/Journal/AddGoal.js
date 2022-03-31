@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Goals from "../Home/Goals"
 
-function AddGoal() {
+function AddGoal({ user }) {
     const [goal, setGoal] = useState("")
     const [refresh, setRefresh] = useState(true)
 
@@ -48,7 +48,7 @@ function AddGoal() {
                 <button 
                 type="submit" 
                 onClick={() => setRefresh(refresh => !refresh)}>Click me</button>
-                <Goals refresh={refresh} />
+                <Goals refresh={refresh} user={user} />
             </form>
         </div>
     )

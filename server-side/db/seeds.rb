@@ -12,12 +12,12 @@ User.create(name: "Joe Biden", profile_picture: "https://pbs.twimg.com/profile_i
 
 
 puts "🌱 Seeding post..."
-Post.create(post: "Had a very productive day!", user_id: 2)
-Post.create(post: "Challenge today was staying focus but a win would be that I have some chicken nuggets", user_id: 3)
-Post.create(post: "No real challenge today. Its a lovely day.", user_id: 4)
-Post.create(post: "Damn, my jaw hurts this morning...", user_id:6)
-Post.create(post: "Im president, yo. Get rekt", user_id: 8)
-Post.create(post: "Keep my wifes name out your mouth", user_id:7)
+Post.create(post: "Had a very productive day!", user_id: 2,)
+Post.create(post: "Challenge today was staying focus but a win would be that I have some chicken nuggets", user_id: 3, img_url:"")
+Post.create(post: "No real challenge today. Its a lovely day.", user_id: 4,)
+Post.create(post: "Damn, my jaw hurts this morning...", user_id:6, img_url:"")
+Post.create(post: "Im president, yo. Get rekt", user_id: 8, img_url:"")
+Post.create(post: "Keep my wifes name out your mouth", user_id:7, img_url:"")
 
 
 puts "🌱 Seeding goals..."

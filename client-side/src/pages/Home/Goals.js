@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './styles.css'
 
 function Goals({ refresh }) {
     const [goals, setGoals] = useState([])
@@ -10,7 +11,6 @@ function Goals({ refresh }) {
     }, [refresh])
 
     function handleChange(id) {
-
         let goalUpdate = {
             status: true
         }
@@ -27,22 +27,23 @@ function Goals({ refresh }) {
 
     }
 
-
     const goalsMap = goals.map((goal) => {
         return (
-            <li>
-                <input type="checkbox" id={goal.id} onChange={()=> handleChange(goal.id)} checked={(goal.status) ? "checked" : null}/>
-                <label for={goal.id}>{goal.goal}</label>
-            </li>
+            <>
+            <input type="checkbox"
+                key={goal.id} 
+                onChange={()=> handleChange(goal.id)} 
+                checked={(goal.status) ? "checked" : null}/>
+            <label for={goal.id}> {goal.goal} </label>
+            </>
         )
     })
 
-
     return (
-        <ul>
+        <div className="goals">
             {goalsMap}
-        </ul>
+        </div>
     )
 }
 
-export default Goals
+export default Goals;

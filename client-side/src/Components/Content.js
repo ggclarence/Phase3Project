@@ -6,7 +6,6 @@ const Journal = React.lazy( () => import('../pages/Journal/Journal'));
 const Home = React.lazy( () => import('../pages/Home/Home'));
 const Profile = React.lazy( () => import('../pages/Profile/Profile'));
 
-
 function Content(){
     return (
         <div className='mainContent'>

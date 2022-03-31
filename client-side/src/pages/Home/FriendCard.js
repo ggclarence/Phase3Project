@@ -43,3 +43,4 @@ export default function AlignItemsList({friend}) {
         </List>
     );
 }
+

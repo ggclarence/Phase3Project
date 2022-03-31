@@ -25,7 +25,7 @@ function Posts({ user }) {
         })
         .then(response => response.json())
         .then(json => {
-            fetch("http://localhost:9292/posts")
+            fetch(`http://localhost:9292/posts/${loadLimit}`)
             .then(resp => resp.json())
             .then(data => setCurrentPost(data))
             });

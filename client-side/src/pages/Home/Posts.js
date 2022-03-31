@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import PostCard from "./PostCard";
 import PostForm from "./PostForm";
 import './styles.css'
@@ -10,7 +11,7 @@ function Posts() {
     useEffect(() => {
         fetch("http://localhost:9292/posts")
             .then(resp => resp.json())
-            .then(data => setCurrentPost(data.slice(-3)))
+            .then(data => setCurrentPost(data))
         }, [])
     
     function handleAdd(newData) {
@@ -23,19 +24,44 @@ function Posts() {
         .then(json => {
             fetch("http://localhost:9292/posts")
             .then(resp => resp.json())
-            .then(data => setCurrentPost(data.slice(-3)))
+            .then(data => setCurrentPost(data))
             });
         }
     
     const mapPost = currentPost.map((post) => {
-        return <PostCard key={post.id} post={post} />
+        return (
+        <>
+        <PostCard key={post.id} post={post} />
+        <br></br>
+        </>
+        )
     })
 
     return (
-        <div className="timeline">
-            <PostForm handleAdd={handleAdd}/>
+        <div 
+        className="timeline"
+        id="scrollableDiv"
+        style={{
+        height: "400",
+        overflow: 'sroll',
+        display: 'flex',
+        flexDirection: 'column',
+        }}
+        >
+        <PostForm />
+        <InfiniteScroll
+            dataLength={currentPost.length}
+            // next={this.fetchMoreData}
+            style={{ display: 'flex', flexDirection: 'column-reverse' }} //To put endMessage and loader to the top.
+            inverse={true} //
+            hasMore={false}
+            loader={<h4>Loading...</h4>}
+            scrollableTarget="scrollableDiv"
+            >
             {mapPost}
-        </div>
+        </InfiniteScroll>
+    </div>
+
     )
 }
 

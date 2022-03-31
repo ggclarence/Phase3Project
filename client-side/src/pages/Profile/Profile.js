@@ -6,6 +6,7 @@ import './styles.css';
 import 'react-calendar/dist/Calendar.css'
 
 function Profile(){
+
     return (
     <div className='profile'>
         <h1>Daily Goals</h1>

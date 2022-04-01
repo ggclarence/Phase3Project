@@ -16,26 +16,20 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
-  get "/users/:id" do
-    user = User.find(params[:id])
-    user.to_json
-  end
-
   get "/goals/:id" do
-    goals = Goal.where(user_id: params[:id]).reverse_order.limit(3).todays_goals
+    goals = Goal.where(user_id: params[:id]).reverse_order.limit(3)
     goals.to_json
   end
 
   get "/journals" do 
-    journals = Journal.all.reverse_order
+    journals = Journal.all
     journals.to_json(include:[:user])
   end
 
-  get "/posts/:num" do 
-    num = params[:num].to_i
-    posts = Post.all.reverse_order.limit(num)
+  get "/posts" do 
+    posts = Post.all
     posts.to_json(include: {
-      user: { only: [:name]} })
+      user: { only: [:name, :profile_picture]} })
   end
 
   post "/posts" do

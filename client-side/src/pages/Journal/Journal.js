@@ -1,13 +1,12 @@
 import React from "react"
 import AddGoal from "./AddGoal"
 import AddJournal from "./AddJournal"
-import './styles.css'
 
-function Journal({ user }) {
+function Journal() {
     return (
         <div className="journal">
-            <AddGoal user={user}/>
-            <AddJournal user={user}/>
+            <AddGoal />
+            <AddJournal />
         </div>
     )
 }

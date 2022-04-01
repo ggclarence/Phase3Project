@@ -1,35 +1,11 @@
-import React, { useState, useEffect } from "react";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 import PostCard from "./PostCard";
 import '../styles.css'
-import PostForm from "./PostForm";
 
-function Posts() {
+function Posts({ currentPost }) { 
 
-    const [currentPost, setCurrentPost] = useState([])
-    const [loadLimit, setLoadLimit] = useState(3)
-
-    useEffect(() => {
-        fetch("http://localhost:9292/posts")
-            .then(resp => resp.json())
-            .then(data => setCurrentPost(data))
-        }, [])
     
-    function handleAdd(newData) {
-
-        fetch("http://localhost:9292/posts", {
-            method: "POST",
-            body: JSON.stringify(newData),
-            headers: { "Content-type": "application/json; charset=UTF-8" }
-        })
-        .then(response => response.json())
-        .then(json => {
-            fetch(`http://localhost:9292/posts`)
-            .then(resp => resp.json())
-            .then(data => setCurrentPost(data))
-            });
-        }
-        
     
     const mapPost = currentPost.map((post) => {
         return <PostCard key={post.id} post={post} /> 
@@ -37,7 +13,6 @@ function Posts() {
 
     return (
             <div id='scrollableDiv'>
-                {/* <PostForm handleAdd={handleAdd}/> */}
                 <InfiniteScroll 
                     dataLength={currentPost.length}
                     style={{

@@ -1,7 +1,6 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import JournalEntries from './JournalEntries';
-import Goals from '../Home/Goals';
 import './styles.css';
 import 'react-calendar/dist/Calendar.css'
 

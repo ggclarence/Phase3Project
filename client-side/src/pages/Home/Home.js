@@ -17,6 +17,12 @@ function Home( { user }) {
             .then(data => setFriends(data))
     }, [refresh])
 
+    useEffect(() => {
+        fetch("http://localhost:9292/posts")
+            .then(resp => resp.json())
+            .then(data => setCurrentPost(data))
+        }, [])
+
     function handleAdd(newData) {
 
         fetch("http://localhost:9292/posts", {
@@ -35,7 +41,7 @@ function Home( { user }) {
     return (
         <div className="homeContainer">
             <PostForm handleAdd={handleAdd} user={user} refresh={refresh} handleRefresh={setRefresh}/>
-            <Posts user={user}/>
+            <Posts user={user} currentPost={currentPost}/>
             <Goals user={user}/>
             <Friends friends={friends}/>
          </div>

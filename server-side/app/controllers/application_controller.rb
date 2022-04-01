@@ -33,8 +33,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/posts" do
-    id = User.handleAdd(params[:name])
-    posts = Post.create(post:params[:post],user_id: id,img_url:params[:img_url] )
+    posts = Post.create(post:params[:post],user_id: 1,img_url:params[:img_url] )
     posts.to_json
   end
 

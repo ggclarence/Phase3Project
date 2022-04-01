@@ -25,8 +25,7 @@ export default function PostCard( {post} ) {
         }
         title={post.user.name}
       />
-      <CardMedia
-        component="img"
+      <CardMedia component="img"
         height="230"
         image= {post.img_url}
         alt={post.user.name}

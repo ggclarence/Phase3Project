@@ -35,3 +35,53 @@
 
     border-radius: 360px;
 }
+
+.homeContainer{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1.3fr .7fr;
+    grid-template-areas: 
+    "tl dg"
+    "tl f";
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    position: relative;
+}
+.friendsContainer{
+    grid-area: f;
+    max-width: 75%;
+    min-height: min-content;
+}
+.tlContainer{
+    grid-area: tl;
+    padding-top: 1rem;
+}
+.timeline{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+}
+.goalContainer{
+    grid-area: dg !important;
+    min-height: min-content;
+    max-width: 100%;
+}
+.postContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: min-content;
+}
+.postForm{
+    padding-bottom: 1rem;
+}
+#scrollableDiv{
+    overflow: auto;
+    height: 671px;
+    max-height: 700px;
+}

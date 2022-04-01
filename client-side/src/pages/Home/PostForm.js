@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
+import "./styles.css";
 
-function PostForm({handleAdd, user}){
+function PostForm({handleAdd, user, handleRefresh, refresh}){
 
     const [newPost, setNewPost] = useState([])
 
     function handleSubmit(event) {
         event.preventDefault()
         handleAdd(newPost)
+        handleRefresh(refresh => !refresh)
         event.target.reset()
     }
     
     function onChange(event) {
-     setNewPost({ ...newPost, [event.target.name]: event.target.value,name: user.name })
+     setNewPost({ ...newPost, [event.target.name]: event.target.value})
     }
     
     return(

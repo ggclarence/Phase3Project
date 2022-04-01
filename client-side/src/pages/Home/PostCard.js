@@ -25,11 +25,7 @@ export default function PostCard( {post} ) {
         }
         title={post.user.name}
       />
-      <CardMedia component="img"
-        height="230"
-        image= {post.img_url}
-        alt={post.user.name}
-      />
+      {post.img_url ? <CardMedia component="img" height="230" image= {post.img_url} alt={post.user.name}/> : null}
       <CardContent>
         <Typography variant="body2" color="text.secondary">{post.post}</Typography>
       </CardContent>

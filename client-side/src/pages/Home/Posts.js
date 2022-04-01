@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PostCard from "./PostCard";
-import PostForm from "./PostForm";
-import './styles.css'
+import '../styles.css'
 
 function Posts() {
 
@@ -29,39 +28,26 @@ function Posts() {
         }
     
     const mapPost = currentPost.map((post) => {
-        return (
-        <>
-        <PostCard key={post.id} post={post} />
-        <br></br>
-        </>
-        )
+        return <PostCard key={post.id} post={post} /> 
     })
 
     return (
-        <div 
-        className="timeline"
-        id="scrollableDiv"
-        style={{
-        height: "400",
-        overflow: 'sroll',
-        display: 'flex',
-        flexDirection: 'column',
-        }}
-        >
-        <PostForm />
-        <InfiniteScroll
-            dataLength={currentPost.length}
-            // next={this.fetchMoreData}
-            style={{ display: 'flex', flexDirection: 'column-reverse' }} //To put endMessage and loader to the top.
-            inverse={true} //
-            hasMore={false}
-            loader={<h4>Loading...</h4>}
-            scrollableTarget="scrollableDiv"
-            >
-            {mapPost}
-        </InfiniteScroll>
-    </div>
-
+            <div id='scrollableDiv'>
+                <InfiniteScroll 
+                    dataLength={currentPost.length}
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column-reverse',
+                        alignItems: "center",
+                    }}
+                    inverse={true}
+                    hasMore={false}
+                    loader={<h4>Loading...</h4>}
+                    scrollableTarget="scrollableDiv"
+                    >
+                    {mapPost}
+                </InfiniteScroll>
+            </div>
     )
 }
 

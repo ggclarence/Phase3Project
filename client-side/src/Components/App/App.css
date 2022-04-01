@@ -1,12 +1,17 @@
 .app{
     display: grid;
 
-    grid-template-columns: auto;
-    grid-template-rows: min-content;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    margin-bottom: 10px;
+    min-height: 100vh;
+    /* overflow: hidden; */
+    
+    grid-template-columns: .5fr 4fr;
     grid-template-areas: 
         "head head head head"
         "nav main main main"
         "nav main main main";
-
-    height: 100vh;
 }

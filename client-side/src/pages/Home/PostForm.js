@@ -15,19 +15,21 @@ function PostForm({handleAdd}){
     }
     
     return(
-        <div className="postForm">
-            <form onSubmit={handleSubmit}>
-                <p>How you feeling bud?</p>
-                    <input type="text"
-                    name="name" 
-                    placeholder="Your Name" 
-                    onChange={onChange} />
-                    <input type="text"
-                    name="post"
-                    placeholder="How are you feeling"
-                    onChange={onChange} />
-                <button type="submit">Add Post</button>
-            </form>
+        <div className='postContainer'>
+            <div className="postForm">
+                <form onSubmit={handleSubmit}>
+                    <p>How you feeling bud?</p>
+                        <input type="text"
+                        name="name" 
+                        placeholder="Your Name" 
+                        onChange={onChange} />
+                        <input type="text"
+                        name="post"
+                        placeholder="How are you feeling"
+                        onChange={onChange} />
+                    <button type="submit">Add Post</button>
+                </form>
+            </div>
         </div>
     )
 }

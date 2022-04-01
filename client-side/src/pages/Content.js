@@ -1,14 +1,15 @@
 import React from 'react';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import './styles.css'
 
-const Journal = React.lazy( () => import('../pages/Journal/Journal'));
-const Home = React.lazy( () => import('../pages/Home/Home'));
-const Profile = React.lazy( () => import('../pages/Profile/Profile'));
+const Journal = React.lazy( () => import('./Journal/Journal'));
+const Home = React.lazy( () => import('./Home/Home'));
+const Profile = React.lazy( () => import('./Profile/Profile'));
 
 function Content(){
     return (
-        <div className='mainContent'>
+        <div className='mainContainer'>
             <Suspense fallback= {<div>Loading...</div>}>
                 <Routes>
                     <Route path="/" element={<Home />} />

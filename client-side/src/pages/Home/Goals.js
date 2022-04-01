@@ -1,5 +1,6 @@
+import { style } from "@mui/system";
 import React, { useState, useEffect } from "react";
-import './styles.css'
+import '../styles.css'
 
 function Goals({ refresh }) {
     const [goals, setGoals] = useState([])
@@ -29,19 +30,19 @@ function Goals({ refresh }) {
 
     const goalsMap = goals.map((goal) => {
         return (
-            <>
-            <input type="checkbox"
-                key={goal.id} 
-                onChange={()=> handleChange(goal.id)} 
-                checked={(goal.status) ? "checked" : null}/>
-            <label for={goal.id}> {goal.goal} </label>
-            </>
+            <ul key={goal.id} >
+                <input type="checkbox"
+                    onChange={()=> handleChange(goal.id)} 
+                    checked={(goal.status) ? "checked" : null}/>
+                <label>{goal.goal} </label>
+            </ul>
         )
     })
 
     return (
-        <div className="goals">
-            {goalsMap}
+        <div className="goalContainer">
+            <h1>Daily Goalz</h1>
+            <li style={{listStyle:"none"}}>{goalsMap}</li>
         </div>
     )
 }

@@ -1,24 +1,9 @@
-// import React from "react";
-// import "./styles.css"
-
-// function FriendCard({friend}){
-//     console.log(friend)
-//     return(
-//         <div className="userBanner">
-//             <img src={friend.profile_picture} alt="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"></img>
-//         </div>
-//     )
-// }
-
-// export default FriendCard
-
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
 
 export default function AlignItemsList({friend}) {
     return (

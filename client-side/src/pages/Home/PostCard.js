@@ -1,18 +1,3 @@
-// import React from "react";
-
-// function PostCard({ post }) {
-//     return (
-//         <ul>
-//             <li>
-//                 <h2>{post.user.name}</h2>
-//                 <p>{post.post}</p>
-//                 <p>created on: {post.created_at.slice(0, 10)}</p>
-//             </li>
-//         </ul>
-//     )
-// }
-
-// export default PostCard
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -22,16 +7,18 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-export default function RecipeReviewCard( {post} ) {
+export default function PostCard( {post} ) {
   return (
-    <Card sx={{ width: "auto", maxWidth: "90%", height:"auto"}}>
+    <Card sx={{ 
+      minWidth: "65%", 
+      maxWidth: "420px", 
+      Height: "520px", 
+      marginBottom: "1.3rem"}}>
       <CardHeader
         avatar={
           <Avatar 
-          sx={{ bgcolor: red[500] }} 
           src={post.user.profile_picture}
           alt={post.user.name}>
           </Avatar>
@@ -40,7 +27,7 @@ export default function RecipeReviewCard( {post} ) {
       />
       <CardMedia
         component="img"
-        height="194"
+        height="230"
         image= {post.img_url}
         alt={post.user.name}
       />

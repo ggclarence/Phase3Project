@@ -1,5 +1,5 @@
 import React from 'react';
-import Content from '../Content';
+import Content from '../../pages/Content';
 import Header from '../Header/Header';
 import NavBar from '../Navbar/Navbar';
 import './App.css';

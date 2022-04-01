@@ -11,19 +11,22 @@ function PostForm({handleAdd, user}){
     }
     
     function onChange(event) {
-        // setNewPost({ name: user.name, post: event.target.value })
-        
-        setNewPost({ ...newPost, [event.target.name]: event.target.value,name: user.name })
-        console.log(newPost)
+     setNewPost({ ...newPost, [event.target.name]: event.target.value,name: user.name })
     }
     
     return(
-        <div className="postForm">
+        <div className="formContainer">
             <form onSubmit={handleSubmit}>
-                <h2>Add a post!</h2>
-                    <input type="text" name="post" placeholder="How are you feeling" onChange={onChange} />
-                    <input type="text" name="img_url" placeholder='image_url' onChange={onChange}/>
-                <button type="submit">Add Post</button>
+                <h2 className='newPostTitle'>Add a post!</h2>
+                <div>
+                    <input  class="formInput" type="text" name="post" placeholder="How are you feeling" onChange={onChange} />
+                </div>
+                <div >    
+                    <input class="formInput" type="text" name="img_url" placeholder='image_url' onChange={onChange}/>
+                </div>
+                <div >
+                <button class="form-submit" type="submit">Add Post</button>
+                </div>
             </form>
         </div>
     )

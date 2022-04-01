@@ -1,28 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import Content from '../Content';
+import React from 'react';
+import Content from '../../pages/Content';
 import Header from '../Header/Header';
 import NavBar from '../Navbar/Navbar';
 import './App.css';
 
 function App() {
-
-  const [loggedInUserID, setLoggedInUserID] = useState(1)
-  const [loggedInUser, setLoggedInUser] = useState([])
-
-  useEffect(() => {
-      fetch(`http://localhost:9292/users/${loggedInUserID}`)
-          .then(res => res.json())
-          .then(res => setLoggedInUser(res))
-
-  }, [loggedInUserID])
-
-
   return (
     
     <div className="app">
-      <Header user={loggedInUser}/>
+      <Header />
       <NavBar />
-      <Content user={loggedInUser}/>
+      <Content />
     </div>  
   );
 }

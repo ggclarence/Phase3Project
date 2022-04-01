@@ -1,5 +1,6 @@
 import React from "react";
 import FriendCard from "./FriendCard";
+import "../styles.css"
 
 function Friends({friends}){
     
@@ -8,7 +9,12 @@ function Friends({friends}){
     })
 
     return(
-        <div className="friendsContainer">
+        <div 
+        className="friendsContainer"
+        style={{
+            display: "flex",
+            flexDirection: "column",
+            }}>
             <h1>Your Friends!</h1>
             {friendsMap}
         </div>

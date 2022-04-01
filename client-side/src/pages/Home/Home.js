@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Posts from "./Posts";
 import Friends from "./Friends";
-import './styles.css'
+import '../styles.css'
 import Goals from "./Goals";
+import PostForm from "./PostForm";
 
 function Home( { user }) {
 
@@ -16,6 +17,7 @@ function Home( { user }) {
 
     return (
         <div className="homeContainer">
+            <PostForm />
             <Posts user={user}/>
             <Goals user={user}/>
             <Friends friends={friends}/>

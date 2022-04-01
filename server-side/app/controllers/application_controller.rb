@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
   get "/posts" do 
     posts = Post.all
     posts.to_json(include: {
-      user: { only: [:name]} })
+      user: { only: [:name, :profile_picture]} })
   end
 
   post "/posts" do

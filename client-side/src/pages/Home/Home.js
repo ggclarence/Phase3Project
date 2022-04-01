@@ -5,7 +5,7 @@ import '../styles.css'
 import Goals from "./Goals";
 import PostForm from "./PostForm";
 
-function Home() {
+function Home( { user }) {
 
     const [friends,setFriends] = useState([])
 
@@ -14,15 +14,15 @@ function Home() {
             .then(resp => resp.json())
             .then(data => setFriends(data))
     }, [])
-    
+
     return (
         <div className="homeContainer">
             <PostForm />
-            <Posts />
-            <Goals />
-            <Friends friends={friends} />
-        </div>
+            <Posts user={user}/>
+            <Goals user={user}/>
+            <Friends friends={friends}/>
+         </div>
     )
 }
 
-export default Home;
+export default Home

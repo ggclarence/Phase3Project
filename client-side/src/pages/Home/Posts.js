@@ -26,6 +26,7 @@ function Posts() {
             .then(data => setCurrentPost(data))
             });
         }
+        /
     
     const mapPost = currentPost.map((post) => {
         return <PostCard key={post.id} post={post} /> 

@@ -8,16 +8,33 @@ import PostForm from "./PostForm";
 function Home( { user }) {
 
     const [friends,setFriends] = useState([])
+    const [currentPost, setCurrentPost] = useState([])
+    const [refresh, setRefresh] = useState(true)
 
     useEffect(() => {
         fetch("http://localhost:9292/users/four")
             .then(resp => resp.json())
             .then(data => setFriends(data))
-    }, [])
+    }, [refresh])
+
+    function handleAdd(newData) {
+
+        fetch("http://localhost:9292/posts", {
+            method: "POST",
+            body: JSON.stringify(newData),
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        })
+        .then(response => response.json())
+        .then(json => {
+            fetch(`http://localhost:9292/posts`)
+            .then(resp => resp.json())
+            .then(data => setCurrentPost(data))
+            });
+        }
 
     return (
         <div className="homeContainer">
-            <PostForm />
+            <PostForm handleAdd={handleAdd} user={user} refresh={refresh} handleRefresh={setRefresh}/>
             <Posts user={user}/>
             <Goals user={user}/>
             <Friends friends={friends}/>
